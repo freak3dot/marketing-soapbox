@@ -1,0 +1,6 @@
+{{> header}}
+<div class="alert alert-danger">
+	<p><strong>Oh snap!</strong> That isn&#39;t supposed to happen.</p>
+	</p>{{#if error.message}}{{error.message}}{{else}}{{ error.errno }}: {{ error.code }}{{/if}}</p>
+</div>
+{{> footer}}

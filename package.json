@@ -1,0 +1,34 @@
+{
+	"name": "marketing-soapbox",
+	"version": "0.0.1",
+	"author": "Ryan Johnston <github@shopandlearn.net>",
+	"description": "A marketing platform but on a smaller soapbox scale.",
+	"contributors": [ 
+		{
+			"name": "Ryan Johnston",
+			"email": "github@shopandlearn.net"
+		}
+	],
+	"repository" : "N/A",
+	"private": true,
+	"dependencies": {
+		"express": "3.3.*",
+		"passport" : "0.2.*",
+		"passport-local" : "0.1.*",
+		"orm" : "2.1.*",
+		"mysql" : "*",
+		"crypto" : "0.0.3",
+		"handlebars": "1.3.*",
+		"consolidate": "0.10.*",
+		"moment": "2.4.0",
+		"nodemon": "0.7.10",
+		"underscore": "1.6.0",
+		"mocha": "*",
+		"should": "*",
+		"supertest": "*"
+	},
+	"scripts": {
+		"test": "make test"
+	},
+	"license": "MIT"
+}

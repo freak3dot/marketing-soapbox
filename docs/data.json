@@ -1,0 +1,317 @@
+{
+    "project": {},
+    "files": {
+        "app/controllers/_apiHelpers.js": {
+            "name": "app/controllers/_apiHelpers.js",
+            "modules": {
+                "controllers": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/controllers/api_lead_controller.js": {
+            "name": "app/controllers/api_lead_controller.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/controllers/api_user_controller.js": {
+            "name": "app/controllers/api_user_controller.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/controllers/home_controller.js": {
+            "name": "app/controllers/home_controller.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/controllers/index.js": {
+            "name": "app/controllers/index.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/controllers/login_controller.js": {
+            "name": "app/controllers/login_controller.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/controllers/logout_controller.js": {
+            "name": "app/controllers/logout_controller.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/controllers/root_controller.js": {
+            "name": "app/controllers/root_controller.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/models/action.js": {
+            "name": "app/models/action.js",
+            "modules": {
+                "models": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/models/activity.js": {
+            "name": "app/models/activity.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/models/address.js": {
+            "name": "app/models/address.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/models/emailAddress.js": {
+            "name": "app/models/emailAddress.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/models/index.js": {
+            "name": "app/models/index.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/models/lead.js": {
+            "name": "app/models/lead.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/models/phone.js": {
+            "name": "app/models/phone.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/models/url.js": {
+            "name": "app/models/url.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/models/user.js": {
+            "name": "app/models/user.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "config/environment.js": {
+            "name": "config/environment.js",
+            "modules": {
+                "config": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "config/passport.js": {
+            "name": "config/passport.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "config/routes.js": {
+            "name": "config/routes.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "config/settings-example.js": {
+            "name": "config/settings-example.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "config/settings.js": {
+            "name": "config/settings.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "tasks/defaultActions.js": {
+            "name": "tasks/defaultActions.js",
+            "modules": {
+                "tasks": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "tasks/defaultUser.js": {
+            "name": "tasks/defaultUser.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "tasks/dropdb.js": {
+            "name": "tasks/dropdb.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "tasks/resetdb.js": {
+            "name": "tasks/resetdb.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "controllers": {
+            "name": "controllers",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "app/controllers/_apiHelpers.js",
+            "line": 1,
+            "description": "This file provides helper functions related to the api.\napp/controllers/_apiHelpers.js",
+            "author": "Ryan Johnston <github@shopandlearn.net>"
+        },
+        "models": {
+            "name": "models",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "app/models/action.js",
+            "line": 1,
+            "description": "This files is used to create the action model. Actions will be\nused for an audit log. Closely related to the activity model.\napp/models/action.js",
+            "author": "Ryan Johnston <github@shopandlearn.net>"
+        },
+        "config": {
+            "name": "config",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "config/environment.js",
+            "line": 1,
+            "description": "Set up the environment on the server.\nInitializes libraries such as express, passport, and handlebars.\nconfig/environment.js",
+            "author": "Ryan Johnston <github@shopandlearn.net>"
+        },
+        "tasks": {
+            "name": "tasks",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "tasks/defaultActions.js",
+            "line": 1,
+            "description": "This file is used to load default actions into the database via the\norm.\nnode tasks/defaultActions",
+            "author": "Ryan Johnston <github@shopandlearn.net>"
+        }
+    },
+    "classes": {},
+    "classitems": [
+        {
+            "file": "config/environment.js",
+            "line": 129,
+            "description": "Remove the www from the url. This is used to ensure canonical\nurls for SEO purposes.",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "object Request Object."
+                },
+                {
+                    "name": "res",
+                    "description": "object Response Object."
+                },
+                {
+                    "name": "next",
+                    "description": "function Callback function."
+                }
+            ],
+            "return": {
+                "description": "function"
+            },
+            "class": "",
+            "module": "config"
+        },
+        {
+            "file": "config/passport.js",
+            "line": 20,
+            "description": "To support persistent login sessions, Passport needs to be able to\nserialize users into and deserialize users out of the session. Typically,\nthis will be as simple as storing the user ID when serializing, and finding\nthe user by ID when deserializing.",
+            "class": "",
+            "module": "config"
+        },
+        {
+            "file": "config/routes.js",
+            "line": 37,
+            "description": "Ensure the request is authenticated. If the request is\nauthenticated (typically via persistent login session),\nthe request will proceed. Otherwise, the user will be redirected\nto the login page.",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "object Request Object."
+                },
+                {
+                    "name": "res",
+                    "description": "object Response Object."
+                },
+                {
+                    "name": "next",
+                    "description": "function Callback function."
+                }
+            ],
+            "return": {
+                "description": "function"
+            },
+            "class": "",
+            "module": "config"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nRemove the www from the url. This is used to ensure canonical\nurls for SEO purposes.",
+            "line": " config/environment.js:129"
+        },
+        {
+            "message": "Missing item type\nTo support persistent login sessions, Passport needs to be able to\nserialize users into and deserialize users out of the session. Typically,\nthis will be as simple as storing the user ID when serializing, and finding\nthe user by ID when deserializing.",
+            "line": " config/passport.js:20"
+        },
+        {
+            "message": "Missing item type\nEnsure the request is authenticated. If the request is\nauthenticated (typically via persistent login session),\nthe request will proceed. Otherwise, the user will be redirected\nto the login page.",
+            "line": " config/routes.js:37"
+        }
+    ]
+}

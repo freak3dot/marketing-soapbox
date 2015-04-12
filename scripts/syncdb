@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+node tasks/resetdb.js
+
+node tasks/defaultUser.js
+node tasks/defaultActions.js
+

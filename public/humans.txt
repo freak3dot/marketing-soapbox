@@ -1,0 +1,17 @@
+
+    /* TEAM */
+    Pastor/President: Ryan Johnston
+    Site: newsunflowerchurch.org
+    Twitter: @SunflowerChurch
+    Location: Indianapolis, Indiana, USA.
+
+
+    /* THANKS */
+    Name: [name or url]
+
+
+    /* SITE */
+    Last update: 2014/01/30
+    Standards: HTML5, CSS3,..
+    Components: nodejs, express, handlebars, bootstrap, etc.
+    Software: Fedora, Firefox, SciTE
