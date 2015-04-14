@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>config/routes.js</title>
+    <title>app/models/link.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -78,65 +78,62 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: config/routes.js</h1>
+<h1 class="file-heading">File: app/models/link.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * Routes file. This file maps server paths to the appropriate
- * controllers.
- * config/routes.js
+ * This model will be used to store short links.
+ * app/models/link.js
  * 
- * @module config
+ * @module models
  * @author Ryan Johnston &lt;github@shopandlearn.net&gt;
  */
 
-var controllers = require(&#x27;../app/controllers&#x27;)();
+var shortId = require(&#x27;shortid&#x27;);
 
-module.exports = function (app, passport) {
-	// Anonymous Routes
-	app.get( &#x27;/&#x27;, controllers.root);
-	app.get( &#x27;/login/&#x27;, controllers.login);
-	app.post(
-		&#x27;/login/&#x27;,
-		passport.authenticate(
-			&#x27;local&#x27;,
-			{&#x27;failureRedirect&#x27;: &#x27;/login/&#x27;}
-		),
-		function(req, res) {
-			res.redirect(&#x27;/home/&#x27;);
+module.exports = function (orm, db) {
+	var Link = db.define(
+		&#x27;link&#x27;,
+		{
+			&#x27;shortcode&#x27;: {
+				&#x27;type&#x27;: &#x27;text&#x27;,
+				&#x27;required&#x27;: true
+			},
+			&#x27;redirect&#x27;: {
+				&#x27;type&#x27;: &#x27;text&#x27;,
+				&#x27;required&#x27;: true
+			},
+		},
+		{
+			&#x27;hooks&#x27;: {
+				&#x27;beforeValidate &#x27;: function () { },
+				&#x27;beforeCreate&#x27;: function () {
+					this.shortcode = shortId.generate();
+				}
+			},
+			&#x27;validations&#x27;: {
+				&#x27;username&#x27;: [
+					orm.enforce.ranges.length(1, undefined, &quot;must be at least 1 chars long&quot;),
+					orm.enforce.ranges.length(undefined, 96, &quot;cannot be longer than 96 letters&quot;)
+				],
+				&#x27;redirect&#x27;: [
+					orm.enforce.ranges.length(8, undefined, &quot;must be at least 8 chars long&quot;),
+					orm.enforce.ranges.length(undefined, 96, &quot;cannot be longer than 96 letters&quot;)
+				],
+			},
+			&#x27;methods&#x27;: {
+				&#x27;serialize&#x27;: function () {
+       
+					return {
+						&#x27;id&#x27;: this.id,
+						&#x27;shortcode&#x27;: this.shortcode,
+						&#x27;password&#x27;: this.password,
+					};
+				},
+			}
 		}
 	);
-	app.get( &#x27;/logout/&#x27; , controllers.logout);
-
-	// Private Routes
-	app.get(&#x27;/home/&#x27;,           ensureAuthenticated, controllers.home);
-	app.get(&#x27;/api/1/user/&#x27;,     ensureAuthenticated, controllers.api_user.list);
-	app.post(&#x27;/api/1/user/&#x27;,    ensureAuthenticated, controllers.api_user.create);
-	app.get(&#x27;/api/1/user/:un/&#x27;, ensureAuthenticated, controllers.api_user.get);
-	app.get(&#x27;/api/1/lead/&#x27;,     ensureAuthenticated, controllers.api_lead.list);
-	app.post(&#x27;/api/1/lead/&#x27;,    ensureAuthenticated, controllers.api_lead.create);
-	app.get(&#x27;/api/1/lead/:id/&#x27;, ensureAuthenticated, controllers.api_lead.get);
-
-	// This route should be last so as to not interfere with other
-	// routes.
-	app.get(&#x27;/:shortUrl&#x27;, controllers.shorturl);
-
-	/**
-	 * Ensure the request is authenticated. If the request is
-	 * authenticated (typically via persistent login session),
-	 * the request will proceed. Otherwise, the user will be redirected
-	 * to the login page.
-	 *
-	 * @param req object Request Object.
-	 * @param res object Response Object.
-	 * @param next function Callback function.
-	 * @return function
-	 */
-	function ensureAuthenticated(req, res, next) {
-		if (req.isAuthenticated()) { return next(); }
-		res.redirect(&#x27;/login/&#x27;)
-	}
 };
 
     </pre>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>config/routes.js</title>
+    <title>app/controllers/shorturl_controller.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -78,67 +78,42 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: config/routes.js</h1>
+<h1 class="file-heading">File: app/controllers/shorturl_controller.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * Routes file. This file maps server paths to the appropriate
- * controllers.
- * config/routes.js
+ * This controller is responsible for converting short urls into
+ * redirects with tracking.
+ * app/controllers/shorturl_controller.js
  * 
- * @module config
+ * @module controllers
  * @author Ryan Johnston &lt;github@shopandlearn.net&gt;
  */
 
-var controllers = require(&#x27;../app/controllers&#x27;)();
+var settings = require(&#x27;../../config/settings&#x27;),
+	partials = require(&#x27;../../app/views/partials&#x27;);
 
-module.exports = function (app, passport) {
-	// Anonymous Routes
-	app.get( &#x27;/&#x27;, controllers.root);
-	app.get( &#x27;/login/&#x27;, controllers.login);
-	app.post(
-		&#x27;/login/&#x27;,
-		passport.authenticate(
-			&#x27;local&#x27;,
-			{&#x27;failureRedirect&#x27;: &#x27;/login/&#x27;}
-		),
-		function(req, res) {
-			res.redirect(&#x27;/home/&#x27;);
-		}
-	);
-	app.get( &#x27;/logout/&#x27; , controllers.logout);
+module.exports = function (req, res, next) {
+	req.models.link.find({&#x27;shortCode&#x27;: req.params.shortUrl}, 1, function (err, linkObjs) {
+			linkObj = linkObjs[0];
+			console.log(linkObj);
 
-	// Private Routes
-	app.get(&#x27;/home/&#x27;,           ensureAuthenticated, controllers.home);
-	app.get(&#x27;/api/1/user/&#x27;,     ensureAuthenticated, controllers.api_user.list);
-	app.post(&#x27;/api/1/user/&#x27;,    ensureAuthenticated, controllers.api_user.create);
-	app.get(&#x27;/api/1/user/:un/&#x27;, ensureAuthenticated, controllers.api_user.get);
-	app.get(&#x27;/api/1/lead/&#x27;,     ensureAuthenticated, controllers.api_lead.list);
-	app.post(&#x27;/api/1/lead/&#x27;,    ensureAuthenticated, controllers.api_lead.create);
-	app.get(&#x27;/api/1/lead/:id/&#x27;, ensureAuthenticated, controllers.api_lead.get);
+			if (typeof linkObj === &#x27;undefined&#x27;) {
+				return res.send(404, &#x27;File Not Found&#x27;);
+			}
+			if (err) {
+				if (err.code == orm.ErrorCodes.NOT_FOUND) {
+					return res.send(404, &#x27;File Not Found&#x27;);
+				} else {
+					console.log(err);
+					return next(err);
+				}
+			}
 
-	// This route should be last so as to not interfere with other
-	// routes.
-	app.get(&#x27;/:shortUrl&#x27;, controllers.shorturl);
-
-	/**
-	 * Ensure the request is authenticated. If the request is
-	 * authenticated (typically via persistent login session),
-	 * the request will proceed. Otherwise, the user will be redirected
-	 * to the login page.
-	 *
-	 * @param req object Request Object.
-	 * @param res object Response Object.
-	 * @param next function Callback function.
-	 * @return function
-	 */
-	function ensureAuthenticated(req, res, next) {
-		if (req.isAuthenticated()) { return next(); }
-		res.redirect(&#x27;/login/&#x27;)
-	}
+			return res.redirect(301, linkObj.redirect);
+		});
 };
-
     </pre>
 </div>
                     </div>

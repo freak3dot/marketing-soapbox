@@ -123,12 +123,7 @@ module.exports = function (orm, db) {
 		},
 		{
 			&#x27;hooks&#x27;: {
-				&#x27;beforeValidate &#x27;: function () {
-					//console.log(this);
-					//if(!this.createdAt){
-					//	this.createdAt = new Date();
-					//}
-				},
+				&#x27;beforeValidate &#x27;: function () { },
 				&#x27;beforeCreate&#x27;: function () {
 					var hash = crypto.createHash(&#x27;sha256&#x27;).update(this.password).digest(&#x27;base64&#x27;);
 					this.password = hash;

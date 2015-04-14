@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>config/routes.js</title>
+    <title>config/settings.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -78,66 +78,39 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: config/routes.js</h1>
+<h1 class="file-heading">File: config/settings.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * Routes file. This file maps server paths to the appropriate
- * controllers.
- * config/routes.js
+ * Example Settings file. This will be the settings file included with
+ * the project so as to not overwrite custom settings. To get the server
+ * up and running. Copy this file to settings.js.
+ * config/settings.js
  * 
  * @module config
  * @author Ryan Johnston &lt;github@shopandlearn.net&gt;
  */
 
-var controllers = require(&#x27;../app/controllers&#x27;)();
+var path       = require(&#x27;path&#x27;),
+	settings = {
+		&#x27;path&#x27;       : path.normalize(path.join(__dirname, &#x27;..&#x27;)),
+		&#x27;port&#x27;       : process.env.NODE_PORT || 3000,
+		&#x27;database&#x27;   : {
+			&#x27;protocol&#x27; : &#x27;mysql&#x27;,
+			&#x27;query&#x27;    : { &#x27;pool&#x27;: true },
+			&#x27;host&#x27;     : &#x27;127.0.0.1&#x27;,
+			&#x27;database&#x27; : &#x27;marketsoapbox&#x27;,
+			&#x27;user&#x27;     : &#x27;soapmarket&#x27;,
+			&#x27;password&#x27; : &#x27;E5v4JZmuKs4QWdvT&#x27;
+		},
+		&#x27;secret&#x27; : &#x27;LUr490BdB1uFaYjhsYaqbplL3u0XMkFua2ZudZejIBRBkF9KCmN&#x27;,
+		&#x27;app&#x27; : {
+			&#x27;title&#x27; : &#x27;Marketing Soapbox&#x27;,
+		},
+	};
 
-module.exports = function (app, passport) {
-	// Anonymous Routes
-	app.get( &#x27;/&#x27;, controllers.root);
-	app.get( &#x27;/login/&#x27;, controllers.login);
-	app.post(
-		&#x27;/login/&#x27;,
-		passport.authenticate(
-			&#x27;local&#x27;,
-			{&#x27;failureRedirect&#x27;: &#x27;/login/&#x27;}
-		),
-		function(req, res) {
-			res.redirect(&#x27;/home/&#x27;);
-		}
-	);
-	app.get( &#x27;/logout/&#x27; , controllers.logout);
-
-	// Private Routes
-	app.get(&#x27;/home/&#x27;,           ensureAuthenticated, controllers.home);
-	app.get(&#x27;/api/1/user/&#x27;,     ensureAuthenticated, controllers.api_user.list);
-	app.post(&#x27;/api/1/user/&#x27;,    ensureAuthenticated, controllers.api_user.create);
-	app.get(&#x27;/api/1/user/:un/&#x27;, ensureAuthenticated, controllers.api_user.get);
-	app.get(&#x27;/api/1/lead/&#x27;,     ensureAuthenticated, controllers.api_lead.list);
-	app.post(&#x27;/api/1/lead/&#x27;,    ensureAuthenticated, controllers.api_lead.create);
-	app.get(&#x27;/api/1/lead/:id/&#x27;, ensureAuthenticated, controllers.api_lead.get);
-
-	// This route should be last so as to not interfere with other
-	// routes.
-	app.get(&#x27;/:shortUrl&#x27;, controllers.shorturl);
-
-	/**
-	 * Ensure the request is authenticated. If the request is
-	 * authenticated (typically via persistent login session),
-	 * the request will proceed. Otherwise, the user will be redirected
-	 * to the login page.
-	 *
-	 * @param req object Request Object.
-	 * @param res object Response Object.
-	 * @param next function Callback function.
-	 * @return function
-	 */
-	function ensureAuthenticated(req, res, next) {
-		if (req.isAuthenticated()) { return next(); }
-		res.redirect(&#x27;/login/&#x27;)
-	}
-};
+module.exports = settings;
 
     </pre>
 </div>

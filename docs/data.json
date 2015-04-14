@@ -59,6 +59,20 @@
             "fors": {},
             "namespaces": {}
         },
+        "app/controllers/shorturl_controller.js": {
+            "name": "app/controllers/shorturl_controller.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/controllers/url_shortener.js": {
+            "name": "app/controllers/url_shortener.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "app/models/action.js": {
             "name": "app/models/action.js",
             "modules": {
@@ -98,6 +112,13 @@
         },
         "app/models/lead.js": {
             "name": "app/models/lead.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "app/models/link.js": {
+            "name": "app/models/link.js",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -166,6 +187,13 @@
             "modules": {
                 "tasks": 1
             },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "tasks/defaultLink.js": {
+            "name": "tasks/defaultLink.js",
+            "modules": {},
             "classes": {},
             "fors": {},
             "namespaces": {}
@@ -277,7 +305,7 @@
         },
         {
             "file": "config/routes.js",
-            "line": 37,
+            "line": 41,
             "description": "Ensure the request is authenticated. If the request is\nauthenticated (typically via persistent login session),\nthe request will proceed. Otherwise, the user will be redirected\nto the login page.",
             "params": [
                 {
@@ -311,7 +339,7 @@
         },
         {
             "message": "Missing item type\nEnsure the request is authenticated. If the request is\nauthenticated (typically via persistent login session),\nthe request will proceed. Otherwise, the user will be redirected\nto the login page.",
-            "line": " config/routes.js:37"
+            "line": " config/routes.js:41"
         }
     ]
 }
