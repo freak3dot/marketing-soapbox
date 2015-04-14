@@ -47,5 +47,5 @@ help:
 # Compile documentation
 docs:
 	rm -rf docs
-	yuidoc -o docs .
+	yuidoc -o docs -x settings.js .
 

@@ -175,13 +175,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "config/settings.js": {
-            "name": "config/settings.js",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "tasks/defaultActions.js": {
             "name": "tasks/defaultActions.js",
             "modules": {

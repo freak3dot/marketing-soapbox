@@ -30,3 +30,4 @@ node_modules
 # Development Machine Config
 settings.js
 config_settings.js
+config_settings.js.html
