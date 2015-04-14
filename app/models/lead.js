@@ -8,14 +8,23 @@
  * @author Ryan Johnston <github@shopandlearn.net>
  */
 
+var shortId = require('shortid');
+
 module.exports = function (orm, db) {
-	var Lead = db.define('lead', {
+	var Lead = db.define(
+	'lead',
+	{
+		'uid': {
+			'type': 'text',
+			'required': true
+		},
 	},
 	{
 		'hooks': {
-			'beforeValidation': function () {
-				//this.createdAt = new Date();
-			}
+			'beforeValidation': function () { },
+			'beforeCreate': function () {
+				this.uid = shortId.generate;
+			},
 		},
 		'validations': {
 		},

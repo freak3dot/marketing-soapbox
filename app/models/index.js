@@ -22,6 +22,8 @@ function setup(db, cb) {
 
 		'lead',
 
+		'link',
+
 		'action',
 		'user',
 		'activity',

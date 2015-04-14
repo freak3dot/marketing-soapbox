@@ -26,13 +26,17 @@ module.exports = function (app, passport) {
 	app.get( '/logout/' , controllers.logout);
 
 	// Private Routes
-	app.get( '/home/',           ensureAuthenticated, controllers.home);
-	app.get( '/api/1/user/',     ensureAuthenticated, controllers.api_user.list);
-	app.post('/api/1/user/',     ensureAuthenticated, controllers.api_user.create);
-	app.get( '/api/1/user/:un/', ensureAuthenticated, controllers.api_user.get);
-	app.get( '/api/1/lead/',     ensureAuthenticated, controllers.api_lead.list);
-	app.post('/api/1/lead/',     ensureAuthenticated, controllers.api_lead.create);
-	app.get( '/api/1/lead/:id/', ensureAuthenticated, controllers.api_lead.get);
+	app.get('/home/',           ensureAuthenticated, controllers.home);
+	app.get('/api/1/user/',     ensureAuthenticated, controllers.api_user.list);
+	app.post('/api/1/user/',    ensureAuthenticated, controllers.api_user.create);
+	app.get('/api/1/user/:un/', ensureAuthenticated, controllers.api_user.get);
+	app.get('/api/1/lead/',     ensureAuthenticated, controllers.api_lead.list);
+	app.post('/api/1/lead/',    ensureAuthenticated, controllers.api_lead.create);
+	app.get('/api/1/lead/:id/', ensureAuthenticated, controllers.api_lead.get);
+
+	// This route should be last so as to not interfere with other
+	// routes.
+	app.get('/:shortUrl', controllers.shorturl);
 
 	/**
 	 * Ensure the request is authenticated. If the request is

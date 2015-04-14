@@ -39,12 +39,7 @@ module.exports = function (orm, db) {
 		},
 		{
 			'hooks': {
-				'beforeValidate ': function () {
-					//console.log(this);
-					//if(!this.createdAt){
-					//	this.createdAt = new Date();
-					//}
-				},
+				'beforeValidate ': function () { },
 				'beforeCreate': function () {
 					var hash = crypto.createHash('sha256').update(this.password).digest('base64');
 					this.password = hash;

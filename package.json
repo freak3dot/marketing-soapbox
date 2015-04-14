@@ -25,7 +25,8 @@
 		"underscore": "1.6.0",
 		"mocha": "*",
 		"should": "*",
-		"supertest": "*"
+		"supertest": "*",
+		"shortid": "*"
 	},
 	"scripts": {
 		"test": "make test"
