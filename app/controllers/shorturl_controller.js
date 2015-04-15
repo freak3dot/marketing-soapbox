@@ -8,7 +8,8 @@
  */
 
 var settings = require('../../config/settings'),
-	partials = require('../../app/views/partials');
+	partials = require('../../app/views/partials'),
+	ip = require('ip');
 
 module.exports = function (req, res, next) {
 	req.models.link.find({'shortCode': req.params.shortUrl}, 1, function (err, linkObjs) {
@@ -26,6 +27,15 @@ module.exports = function (req, res, next) {
 					return next(err);
 				}
 			}
+
+			// If there is a cookie, use that to find lead
+
+			// else, create new lead
+
+
+			// Add ip address to lead if not already on lead.
+
+			// Add event to lead. Click shortlink.
 
 			return res.redirect(301, linkObj.redirect);
 		});

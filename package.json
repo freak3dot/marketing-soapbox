@@ -26,7 +26,8 @@
 		"mocha": "*",
 		"should": "*",
 		"supertest": "*",
-		"shortid": "*"
+		"shortid": "*",
+		"ip": "*"
 	},
 	"scripts": {
 		"test": "make test"

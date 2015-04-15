@@ -16,9 +16,10 @@ function setup(db, cb) {
 	var models = [
 
 		'emailAddress',
+		'address',
 		'phone',
-		//'email',
 		'url',
+		'ipAddress',
 
 		'lead',
 

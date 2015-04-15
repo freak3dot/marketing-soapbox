@@ -37,6 +37,7 @@ module.exports = function (orm, db) {
 		}
 	});
 
+	Lead.hasMany('ipAddress', db.models.ipAddress, {}, { 'required': false, 'reverse': 'ips', 'autoFetch': true });
 	Lead.hasMany('address', db.models.address, {}, { 'required': false, 'reverse': 'addresses', 'autoFetch': true });
 	Lead.hasMany('phone', db.models.phone, {}, { 'required': false, 'reverse': 'phones', 'autoFetch': true });
 	Lead.hasMany('emailAddress', db.models.email, {}, { 'required': false, 'reverse': 'emails', 'autoFetch': true });
