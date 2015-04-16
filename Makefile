@@ -11,13 +11,13 @@
 deps:
 	npm install -g jshint nodemon yuidocjs
 
-# Run the development server.
+# Run the development server. Watch for file changes.
 runserver:
-	node server.js
+	scripts/start
 
 # Run the server.
 run:
-	scripts/start
+	node server.js
 
 # Drop the database.
 dropdb:

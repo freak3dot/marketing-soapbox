@@ -7,4 +7,5 @@ for i in $items; do
   watch="$watch --watch $i"
 done
 
+# Runs a developement server that watches for file changes.
 nodemon $watch server.js
