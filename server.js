@@ -4,7 +4,6 @@ var path = require('path'),
 	LocalStrategy = require('passport-local').Strategy,
 	settings = require('./config/settings'),
 	environment = require('./config/environment'),
-	routes = require('./config/routes'),
 	models = require('./app/models/'),
 	passportConfig = require('./config/passport');
 /*
@@ -26,8 +25,6 @@ module.exports.start = function (done) {
 
 	passportConfig(passport);
 	environment(app);
-	// pass passport for configuration
-	routes(app, passport);
 
 	app.listen(settings.port, function () {
 		console.log( ('Listening on port ' + settings.port) );

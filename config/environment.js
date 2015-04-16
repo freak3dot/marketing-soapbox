@@ -17,6 +17,7 @@ var path = require('path'),
 	session = require('express-session'),
 	methodOverride = require('method-override'),
 	bodyParser = require('body-parser'),
+	routes = require('../config/routes'),
 
 // The `consolidate` adapter module  
 	cons = require('consolidate');
@@ -79,7 +80,7 @@ module.exports = function (app) {
 
 	// Route urls
 	// app.use(app.router); // Deprecated in express 3.x to 4.x migration
-
+	routes(app, passport);
 
 	var partials = require('../app/views/partials');
 	// Last non-error handling middleware - assume 404
