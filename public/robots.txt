@@ -1,2 +1,3 @@
+# Robots welcome. Please follow redirect.
 User-agent: *
-Disallow: /
+Disallow:
