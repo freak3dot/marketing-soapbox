@@ -37,7 +37,7 @@ module.exports = function (orm, db) {
 		}
 	});
 
-	Activity.hasOne('user', db.models.user, { 'required': true, 'reverse': 'user', 'autoFetch': true });
-	Activity.hasOne('action', db.models.action, { 'required': true, 'reverse': 'action', 'autoFetch': true });
+	Activity.hasOne('user', db.models.user, { 'required': true, 'alwaysValidate': true, 'reverse': 'user', 'autoFetch': true });
+	Activity.hasOne('action', db.models.action, { 'required': true, 'alwaysValidate': true, 'reverse': 'action', 'autoFetch': true });
 
 };

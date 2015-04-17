@@ -15,15 +15,17 @@ module.exports = function (orm, db) {
 	'lead',
 	{
 		'uid': {
-			'type': 'text',
-			'required': true
+			'type': 'text'
 		},
 	},
 	{
 		'hooks': {
 			'beforeValidation': function () { },
 			'beforeCreate': function () {
-				this.uid = shortId.generate;
+				console.log(this.uid);
+				if (this.uid == null || this.uid == ''){
+					this.uid = shortId.generate();
+				}
 			},
 		},
 		'validations': {
@@ -37,9 +39,9 @@ module.exports = function (orm, db) {
 		}
 	});
 
-	Lead.hasMany('ipAddress', db.models.ipAddress, {}, { 'required': false, 'reverse': 'ips', 'autoFetch': true });
-	Lead.hasMany('address', db.models.address, {}, { 'required': false, 'reverse': 'addresses', 'autoFetch': true });
-	Lead.hasMany('phone', db.models.phone, {}, { 'required': false, 'reverse': 'phones', 'autoFetch': true });
-	Lead.hasMany('emailAddress', db.models.email, {}, { 'required': false, 'reverse': 'emails', 'autoFetch': true });
-	Lead.hasMany('url', db.models.url, {}, { 'required': false, 'reverse': 'urls', 'autoFetch': true });
+	Lead.hasMany('ipAddress', db.models.ipAddress, {}, { 'required': false, 'alwaysValidate': false, 'reverse': 'leads', 'autoFetch': true });
+	Lead.hasMany('address', db.models.address, {}, { 'required': false, 'alwaysValidate': false, 'reverse': 'leads', 'autoFetch': true });
+	Lead.hasMany('phone', db.models.phone, {}, { 'required': false, 'alwaysValidate': false, 'reverse': 'leads', 'autoFetch': true });
+	Lead.hasMany('emailAddress', db.models.email, {}, { 'required': false, 'alwaysValidate': false, 'reverse': 'leads', 'autoFetch': true });
+	Lead.hasMany('url', db.models.url, {}, { 'required': false, 'alwaysValidate': false, 'reverse': 'leads', 'autoFetch': true });
 };

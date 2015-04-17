@@ -20,7 +20,9 @@ module.exports = function (orm, db) {
 	{
 		'hooks': {
 			'beforeValidation': function () {
-				this.activityDate = new Date();
+				if (this.eventDate == null || this.eventDate == undefined ){
+					this.eventDate = new Date();
+				}
 			}
 		},
 		'validations': {
@@ -37,7 +39,7 @@ module.exports = function (orm, db) {
 		}
 	});
 
-	Event.hasOne('lead', db.models.user, { 'required': true, 'reverse': 'lead', 'autoFetch': true });
-	Event.hasOne('eventType', db.models.action, { 'required': true, 'reverse': 'type', 'autoFetch': true });
+	Event.hasOne('lead', db.models.lead, { 'required': true, 'alwaysValidate': true, 'reverse': 'lead', 'autoFetch': true });
+	Event.hasOne('eventType', db.models.eventType, { 'required': true, 'alwaysValidate': true, 'reverse': 'type', 'autoFetch': true });
 
 };
