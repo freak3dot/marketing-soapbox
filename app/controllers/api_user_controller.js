@@ -32,9 +32,6 @@ module.exports = {
 		params.createdAt = new Date();
 
 		req.models.user.find({'username': params.username}, 1, function (err, userObjs) {
-			console.log(params.username);
-			console.log(err);
-			console.log(userObjs);
 
 			if (userObjs.length != 0) {
 				res.json(409, 'User with username already exists.');
@@ -57,7 +54,6 @@ module.exports = {
 		req.models.user.find({'username': req.params.un}, 1, function (err, userObjs) {
 
 			userObj = userObjs[0];
-			console.log(userObj);
 			if (err) {
 				if (err.code == orm.ErrorCodes.NOT_FOUND) {
 					return res.send(404, { 'detail' : 'User not found'});
