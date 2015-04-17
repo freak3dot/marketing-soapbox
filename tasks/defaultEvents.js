@@ -1,6 +1,6 @@
 /**
- * This file is used to load default events into the database via the
- * orm.
+ * This file is used to load default events types into the database via
+ * the orm.
  * node tasks/defaultEvents
  * @module tasks
  * @author Ryan Johnston <github@shopandlearn.net>
@@ -10,7 +10,7 @@ var models = require('../app/models/');
 models(function (err, db) {
 	if (err) throw err;
 
-	db.models.event.create([
+	db.models.eventType.create([
 		{
 			'name': 'Click',
 		},
