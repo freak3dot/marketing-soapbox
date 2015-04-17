@@ -25,6 +25,10 @@ var path = require('path'),
 
 module.exports = function (app) {
 	var oneDay = 86400000;
+
+	// Trust proxy, this will be run behind nginx.
+	app.enable('trust proxy');
+
 	// Switch off the default 'X-Powered-By: Express' header
 	app.use(function (req, res, next) {
 		res.setHeader( 'X-Powered-By', settings.app.title );
@@ -68,7 +72,7 @@ module.exports = function (app) {
 			if (err) return next(err);
 			req.models = db.models;
 
-			req.db     = db;
+			req.db = db;
 
 			return next();
 		});
