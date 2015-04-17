@@ -25,6 +25,9 @@ function setup(db, cb) {
 
 		'link',
 
+		'eventType',
+		'event',
+
 		'action',
 		'user',
 		'activity',
